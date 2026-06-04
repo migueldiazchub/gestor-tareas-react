@@ -35,23 +35,25 @@ export default function Page() {
 
   return (
     <div>
-      <header className="h-[12vh] border pl-[10%] content-center">
+      <header className="h-[12vh] border text-center content-center">
         <h1 className="text-5xl font-semibold">Gestor de Tareas React</h1>
       </header>
       <main className="h-[88vh] flex justify-center gap-10">
-        <div className="border h-1/2">
-          <input
-            className="border"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-            placeholder="Título de la tarea"
-          ></input>
-          <textarea
-            className="border resize-none"
-            value={descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
-            placeholder="Descripción de la tarea"
-          ></textarea>
+        <div className="border h-1/2 w-1/3 flex flex-col justify-between items-center">
+          <div className="h-1/2 flex flex-col">
+            <input
+              className="border"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              placeholder="Título de la tarea"
+            ></input>
+            <textarea
+              className="border resize-none"
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+              placeholder="Descripción de la tarea"
+            ></textarea>
+          </div>
           <button
             className="w-50 border hover:bg-gray-200"
             onClick={nuevaTarea}
@@ -59,15 +61,18 @@ export default function Page() {
             Añadir
           </button>
         </div>
-        <div className="border h-full w-1/2">
+        <div className="border h-full w-1/3">
           {tareas.length === 0 ? (
             <p>No hay tareas</p>
           ) : (
             tareas.map((tarea) => (
-              <article key={tarea.id}>
-                <h2>{tarea.titulo}</h2>
-                <p>{tarea.descripcion}</p>
-                <button onClick={() => eliminarTarea(tarea.id)}>Borrar</button>
+              <article className="w-full border flex justify-between" key={tarea.id}>
+                <div>
+                  <h2>Tarea: {tarea.titulo}</h2>
+                  <p>Descripción: {tarea.descripcion}</p>
+                </div>
+                <button className="border" 
+                onClick={() => eliminarTarea(tarea.id)}>Borrar</button>
               </article>
             ))
           )}
