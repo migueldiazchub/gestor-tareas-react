@@ -23,15 +23,15 @@ export default async function Page() {
     revalidatePath("/gestor-tareas")
   }
 
-  async function eliminarTarea(formData: FormData){
-    "use server"
+  // async function eliminarTarea(formData: FormData){
+  //   "use server"
 
-    const id = formData.get("id")
+  //   const id = formData.get("id")
 
-    await borrarTarea(id)
+  //   await borrarTarea(id)
 
-    revalidatePath("/gestor-tareas")
-  }
+  //   revalidatePath("/gestor-tareas")
+  // }
 
   return (
     <div className="text-gray-100">
