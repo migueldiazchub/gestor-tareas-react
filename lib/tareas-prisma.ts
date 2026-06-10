@@ -16,3 +16,11 @@ export async function insertarTarea(titulo: string, descripcion: string) {
     },
   })
 }
+
+export async function eliminarTarea(id: number){
+    await prisma.tareas.delete({
+  where: {
+    id: id,
+  },
+})
+}

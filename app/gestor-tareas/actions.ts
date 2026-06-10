@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 import { insertarTarea } from "@/lib/tareas-prisma"
+import { eliminarTarea } from "@/lib/tareas-prisma"
 
 export async function crearTarea(formData: FormData) {
   const titulo = formData.get("titulo")
