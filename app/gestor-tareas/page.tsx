@@ -26,8 +26,7 @@ export default async function Page() {
   async function eliminarTarea(formData: FormData){
     "use server"
 
-    const id = formData.get("id");
-    //Da error por algún motivo pero al probarlo funciona correctamente
+    const id = formData.get("id") as string
     const idint = parseInt(id);
 
     await borrarTarea(idint)
