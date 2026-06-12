@@ -1,8 +1,6 @@
 import { obtenerTareas } from "@/lib/tareas-prisma"
 import { TareaForm } from "./TareaForm"
 import { BotonBorrar } from "./BotonBorrar";
-import { borrarTarea } from "./actions";
-
 
 export default async function Page() {
   const tareas = await obtenerTareas();

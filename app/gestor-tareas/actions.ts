@@ -24,6 +24,7 @@ export async function crearTarea(formData: FormData) {
 export async function borrarTarea(formData: FormData) {
   console.log("ocurre el evento")
     const id = formData.get("id")
+    //Da error por algún motivo pero al probarlo funcionaba correctamente
     const idint = parseInt(id);
     console.log(typeof idint);
 
