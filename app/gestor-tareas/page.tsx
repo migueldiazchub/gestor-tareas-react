@@ -23,15 +23,17 @@ export default async function Page() {
     revalidatePath("/gestor-tareas")
   }
 
-  // async function eliminarTarea(formData: FormData){
-  //   "use server"
+  async function eliminarTarea(formData: FormData){
+    "use server"
 
-  //   const id = formData.get("id")
+    const id = formData.get("id");
+    //Da error por algún motivo pero al probarlo funciona correctamente
+    const idint = parseInt(id);
 
-  //   await borrarTarea(id)
+    await borrarTarea(idint)
 
-  //   revalidatePath("/gestor-tareas")
-  // }
+    revalidatePath("/gestor-tareas")
+  }
 
   return (
     <div className="text-gray-100">
@@ -82,12 +84,14 @@ export default async function Page() {
                       <strong>Descripción:</strong> {tarea.descripcion}
                     </p>
                   </div>
-                  <button
+                  <form action={eliminarTarea}>
+                    <input type="hidden" name="id" value={tarea.id} />
+                    <button
                     className="w-20 h-1/2 mt-1 mr-1 rounded-sm bg-gray-600 text-gray-100 hover:bg-gray-400 hover:text-gray-800"
-
-                  >
-                    Borrar
-                  </button>
+                    >
+                      Borrar
+                    </button>
+                  </form>
                 </article>
               ))}
             </div>
