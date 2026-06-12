@@ -1,5 +1,7 @@
 import { obtenerTareas } from "@/lib/tareas-prisma"
 import { TareaForm } from "./TareaForm"
+import { BotonBorrar } from "./BotonBorrar";
+import { borrarTarea } from "./actions";
 
 
 export default async function Page() {
@@ -33,13 +35,7 @@ export default async function Page() {
                       <strong>Descripción:</strong> {tarea.descripcion}
                     </p>
                   </div>
-                  <form className="w-20 h-1/2 mt-1 mr-1 rounded-sm">
-                    <button type="submit"
-                    className="w-full h-full bg-gray-600 text-gray-100 hover:bg-gray-400 hover:text-gray-800"
-                  >
-                    Borrar
-                  </button>
-                  </form>
+                  <BotonBorrar id={tarea.id} />
                 </article>
               ))}
             </div>

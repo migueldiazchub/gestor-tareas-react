@@ -20,3 +20,19 @@ export async function crearTarea(formData: FormData) {
 
   revalidatePath("/gestor-tareas")
 }
+
+export async function borrarTarea(formData: FormData) {
+  console.log("ocurre el evento")
+    const id = formData.get("id")
+    const idint = parseInt(id);
+    console.log(typeof idint);
+
+    if(typeof idint !== "number"){
+      console.log("error de tipo");
+      return;
+    }
+
+    await eliminarTarea(idint);
+
+    revalidatePath("/gestor-tareas");
+}
